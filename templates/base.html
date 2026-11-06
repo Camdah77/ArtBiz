@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtBiz - Connects art and business</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+</head>
+<body>
+
+    <!--  Bootstrap  (Navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">ArtBiz</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-expand-lg navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Our Service</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Artists</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Log in</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Other Apps -->
+    <div class="container my-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://jsdelivr.net"></script>
+</body>
+</html>
