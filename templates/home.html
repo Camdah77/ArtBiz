@@ -1,36 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
-   
-<!-- CSS -->
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 {% block content %}
-<!-- Vi nollställer containern lite för att få blocken att gå ändå ut på sidorna -->
-<div class="container-fluid px-0 mx-0" style="margin-top: -3rem;">
+<!-- Rad 1: En enda stor herobild över hela skärmen -->
+<div class="hero-image" style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794058814/hero_artbiz_bob7uy.png');"></div>
+
+<!-- Resten av ditt supersnygga schackmönster -->
+<div class="container-fluid px-0 mx-0">
     
-    <!-- HeroImage -->
-    <div class="hero-image" img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1794058814/hero_artbiz_bob7uy.png" alt="Office hallway">
-        </div>
-       
     <!-- Rad 2: Your Walls & Tom ruta -->
     <div class="row g-0 align-items-center text-center">
-        <!-- Beige block -->
         <div class="col-md-6 d-flex align-items-center justify-content-center text-white fw-bold" style="background-color: #b59780; height: 300px; font-size: 1.5rem; letter-spacing: 2px;">
             YOUR WALLS OUR BUSINESS
         </div>
-        <!-- Mörkgrått block -->
-        <div class="col-md-6" style="background-color: #4a4a4a; height: 300px;">
-            <!-- Tomt eller plats för framtida text -->
-        </div>
+        <div class="col-md-6" style="background-color: #4a4a4a; height: 300px;"></div>
     </div>
 
     <!-- Rad 3: Tom ruta & Our Artists -->
     <div class="row g-0 align-items-center text-center">
-        <!-- Mörkgrått block -->
-        <div class="col-md-6" style="background-color: #4a4a4a; height: 300px;">
-            <!-- Tomt -->
-        </div>
-        <!-- Beige block som länkar till dina konstnärer -->
+        <div class="col-md-6" style="background-color: #4a4a4a; height: 300px;"></div>
         <a href="{% url 'artist_list' %}" class="col-md-6 d-flex align-items-center justify-content-center text-white fw-bold text-decoration-none highlight-hover" style="background-color: #c2a38e; height: 300px; font-size: 1.5rem; letter-spacing: 2px;">
             OUR ARTISTS
         </a>
@@ -38,14 +26,10 @@
 
     <!-- Rad 4: Booking & Tom ruta -->
     <div class="row g-0 align-items-center text-center">
-        <!-- Beige block -->
         <div class="col-md-6 d-flex align-items-center justify-content-center text-white fw-bold" style="background-color: #b59780; height: 300px; font-size: 1.5rem; letter-spacing: 2px;">
             BOOKING
         </div>
-        <!-- Mörkgrått block -->
-        <div class="col-md-6" style="background-color: #4a4a4a; height: 300px;">
-            <!-- Tomt -->
-        </div>
+        <div class="col-md-6" style="background-color: #4a4a4a; height: 300px;"></div>
     </div>
 
 </div>
