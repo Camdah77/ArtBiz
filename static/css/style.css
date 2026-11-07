@@ -1,0 +1,20 @@
+
+/*Font family  */
+body {
+    font-family: Montserrat, sans-serif;
+    height: 100%;
+    
+          }
+/*Margin & border */
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+  }
+
+ .hero-image {
+    background: no-repeat center top;
+    background-size: cover;
+}   
+  
