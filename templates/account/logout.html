@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container pt-5 mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="card shadow-sm border-0 p-4 mt-4 text-center">
+<!-- Denna div täcker hela skärmen med bakgrundsbilden -->
+<div style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794058814/hero_artbiz_bob7uy.png'); background-size: cover; background-position: center; min-height: 100vh; w-100;">
+    
+    <!-- Containern ligger inuti för att hålla inloggningsrutan centrerad -->
+    <div class="container pt-5">
+        <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+            <div class="col-md-6 col-lg-5">
+                <div class="card shadow-lg border-0 p-4 my-4">
                 <h2 class="fw-bold mb-3">Sign Out</h2>
                 <p class="text-muted mb-4">Are you sure you want to sign out?</p>
                 

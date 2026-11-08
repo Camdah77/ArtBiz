@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container pt-5 mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="card shadow-sm border-0 p-4 mt-4">
-                <h2 class="text-center mb-4 fw-bold">Sign Up</h2>
+<!-- Denna div täcker hela skärmen med bakgrundsbilden -->
+<div style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794155254/hero_2office_sman1x.jpg'); background-size: cover; background-position: center; min-height: 100vh; w-100;">
+    
+    <!-- Containern ligger inuti för att hålla inloggningsrutan centrerad -->
+    <div class="container pt-5">
+        <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+            <div class="col-md-6 col-lg-5">
+                <div class="card shadow-lg border-0 p-4 my-4">
+                    <h2 class="text-center mb-4 fw-bold">Sign Up</h2>
                 
                 <form method="POST" action="{% url 'account_signup' %}">
                     {% csrf_token %}
