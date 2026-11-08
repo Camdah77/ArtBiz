@@ -18,6 +18,8 @@ body {
     background-size: cover;       
     background-position: center; 
     background-repeat: no-repeat;
+    padding-top: 600px;
+     /* Justera denna efter navbarens höjd */
 }
 
 /* Lägg också till denna för att säkerställa att schackrutorna syns */
