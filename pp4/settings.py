@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     
+     # Allauth:
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+        
     # Local apps
     'artists',
     'bookings',
@@ -47,15 +52,18 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', 
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    # Lägg till denna rad längst ner:
+    'allauth.account.middleware.AccountMiddleware',
 ]
-
+SITE_ID = 1
 ROOT_URLCONF = 'pp4.urls'
 
 TEMPLATES = [
@@ -131,15 +139,33 @@ STATICFILES_DIRS = [
 # Talar om för Django var filerna ska samlas ihop vid publicering
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Aktiverar WhiteNoise för att komprimera och cacha dina CSS/JS-filer effektivt
+# Whitenoice to serve static files in production
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
-    "staticfiles": {  # <--- Ändrat från "static" till "staticfiles"
+    "staticfiles": {  
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+AUTHENTICATION_BACKENDS = [
+    # Behövs för att logga in i Djangos vanliga adminpanel
+    'django.contrib.auth.backends.ModelBackend',
+    # Allauth-specifika inloggningsmetoder
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# Allauth-inställningar för projektets beteende
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
+ACCOUNT_EMAIL_VERIFICATION = 'none'              # 'none' during development so we don't need to send real emails
+
+LOGIN_REDIRECT_URL = '/'                         # Where the user is redirected after successful login
+LOGOUT_REDIRECT_URL = '/'                        # Where the user is redirected after logout
+
+
+
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 

@@ -55,8 +55,8 @@ body {
 }
 
 /* Framsidan specifikt */
-.flip-card-front {
-    /* Bakgrundsfärgen styrs direkt i HTML-koden ovan */
+.flip-card-front {  
+    background-color: transparent;
 }
 
 /* Baksidan specifikt */
