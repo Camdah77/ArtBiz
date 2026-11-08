@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from urllib3 import request
+import artists
 from .models import Artist
 
 def artist_list(request):
@@ -7,3 +9,4 @@ def artist_list(request):
     
     # Skickar med konstnärerna till HTML-mallen
     return render(request, 'artists/artist_list.html', {'artists': artists})
+
