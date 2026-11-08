@@ -1,3 +1,8 @@
+body {
+    padding-top: 56px; /* Justera denna efter navbarens höjd */
+     overflow-x: hidden;
+    }
+
 /* Lås fast navbaren i toppen */
 .navbar {
     position: fixed;
@@ -6,26 +11,21 @@
     width: 100%;
     z-index: 1000;
 }
-
-/* Skapa utrymme för hela sidan så den inte hamnar bakom den fasta navbaren */
-body {
-    padding-top: 56px; /* Justera denna efter navbarens höjd */
-     overflow-x: hidden;
-    }
-
+/* Center and covered heroimage */
 .hero-image {
-    height: 100vh;                /* 100% av skärmens höjd */
-    width: 100vw;                 /* 100% av skärmens bredd */
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;           /* Magiskt CSS-knep för att gå utanför Djangos containers */
-    margin-right: -50vw;
-    margin-top: -56px;            /* Drar upp bilden under navbaren */
-    background-size: cover;       /* Täcker hela ytan */
-    background-position: center;  /* Centrerar bilden */
+    height: 100%;                 
+    width: 100%;                  
+    background-size: cover;       
+    background-position: center; 
     background-repeat: no-repeat;
 }
+
+/* Lägg också till denna för att säkerställa att schackrutorna syns */
+.container-fluid {
+    margin-top: 20px !important;
+}
+
+
 /* Gör att ditt schackmönster också sträcker sig över 100% av skärmbredden */
 .container-fluid.px-0.mx-0 {
     width: 100vw !important;
