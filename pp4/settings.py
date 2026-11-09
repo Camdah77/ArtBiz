@@ -166,11 +166,17 @@ ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 # Kräver e-post (stjärnan * betyder obligatorisk) vid registrering
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 
-# Tvingar användaren att bekräfta mejlen för att kunna logga in
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'         
+# Tillåt inloggning utan att länken MÅSTE klickas (bryter loopen!)
+ACCOUNT_EMAIL_VERIFICATION = "optional"
+ACCOUNT_LOGIN_ON_SIGNUP = False
+
+# Tvinga Django att skicka användaren till verifieringssidan direkt efter registrering
+ACCOUNT_SIGNUP_REDIRECT_URL = '/accounts/confirm-email/'
+
 
 LOGIN_REDIRECT_URL = '/'                         # Vart användaren skickas efter inloggning
 LOGOUT_REDIRECT_URL = '/'                        # Vart användaren skickas efter utloggning
+
 
 # --- E-POST KONFIGURATION (Djangos Console Backend) ---
 # Skriver ut alla bekräftelsemejl direkt i din VS Code-terminal istället för att skicka på riktigt
