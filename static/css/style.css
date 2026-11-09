@@ -1,6 +1,7 @@
 body {
     padding-top: 56px; /* Justera denna efter navbarens höjd */
-     overflow-x: hidden;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
     }
 
 /* Lås fast navbaren i toppen */

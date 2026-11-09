@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .custom-card {
+        background: #ffffff;
+        border-radius: 8px;
+        text-align: center;
+        width: 100%;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .custom-card h1 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    .custom-card p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 20px;
+    }
+    .info-box {
+        background-color: #f8f5f2; /* Ljus beige/grå variant av din ArtBiz-färg för bättre textkontrast */
+        border-left: 4px solid #b59780; /* Din ArtBiz guld/beige färg som kant */
+        padding: 15px;
+        text-align: left;
+        border-radius: 0 4px 4px 0;
+        margin-top: 15px;
+        font-size: 14px;
+        color: #212529;
+    }
+</style>
+
+<!-- Denna div täcker hela skärmen med bakgrundsbilden -->
+<div style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794212297/verify_hero_swlf91.jpg'); background-size: cover; background-position: center; min-height: 100vh; width: 100%;">
+    <div class="container pt-5">
+        <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+            <div class="col-md-6 col-lg-5">
+                <!-- Bootstrap-kortet som omsluter innehållet -->
+                <div class="card shadow-lg border-0 p-5 my-4 custom-card">
+                    <h1>Almost there!</h1>
+                    <p>We have sent an email to you for verification.</p>
+                    
+                    <div class="info-box">
+                        Follow the link provided to finalize the signup process. <br><br>
+                        If you do not see the verification email in your main inbox, please check your <strong>spam folder</strong>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
