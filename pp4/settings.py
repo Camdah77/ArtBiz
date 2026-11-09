@@ -159,21 +159,19 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-# Allauth-inställningar för projektets beteende
+# --- MODERNA DJANGO-ALLAUTH INSTÄLLNINGAR ---
+# Bestämmer hur användaren loggar in (både användarnamn och e-post tillåts)
 ACCOUNT_LOGIN_METHODS = {'username', 'email'}
+
+# Kräver e-post (stjärnan * betyder obligatorisk) vid registrering
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
-ACCOUNT_EMAIL_VERIFICATION = 'none'              # 'none' during development so we don't need to send real emails
 
-LOGIN_REDIRECT_URL = '/'                         # Where the user is redirected after successful login
-LOGOUT_REDIRECT_URL = '/'                        # Where the user is redirected after logout
+# Tvingar användaren att bekräfta mejlen för att kunna logga in
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'         
 
+LOGIN_REDIRECT_URL = '/'                         # Vart användaren skickas efter inloggning
+LOGOUT_REDIRECT_URL = '/'                        # Vart användaren skickas efter utloggning
 
-
-# Email
-# https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
-
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
+# --- E-POST KONFIGURATION (Djangos Console Backend) ---
+# Skriver ut alla bekräftelsemejl direkt i din VS Code-terminal istället för att skicka på riktigt
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
