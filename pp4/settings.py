@@ -172,13 +172,9 @@ ACCOUNT_LOGIN_ON_SIGNUP = False
 
 # Tvinga Django att skicka användaren till verifieringssidan direkt efter registrering
 ACCOUNT_SIGNUP_REDIRECT_URL = '/accounts/confirm-email/'
-# Talar om för Django Allauth att skicka inloggade användare direkt till dashboarden
-ACCOUNT_LOGIN_REDIRECT_URL = '/accounts/dashboard/'
 
-
-
-LOGIN_REDIRECT_URL = '/'                         # Vart användaren skickas efter inloggning
-LOGOUT_REDIRECT_URL = '/'                        # Vart användaren skickas efter utloggning
+LOGIN_REDIRECT_URL = '/accounts/dashboard/'      # Skickar alla inloggade till dashboarden
+LOGOUT_REDIRECT_URL = '/'                        # Skickar utloggade till startsidan
 
 
 # --- E-POST KONFIGURATION (Djangos Console Backend) ---
