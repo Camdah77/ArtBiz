@@ -30,6 +30,7 @@ class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
     service = models.ForeignKey(Service, on_delete=models.PROTECT, related_name='booked_services')
     booking_date = models.DateTimeField() 
+    number_of_participants = models.PositiveIntegerField(default=5) 
     created_at = models.DateTimeField(auto_now_add=True) 
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     notes = models.TextField(blank=True, null=True) 
