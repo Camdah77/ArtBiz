@@ -9,7 +9,7 @@
         <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
             <div class="col-md-6 col-lg-5">
                 <div class="card shadow-lg border-0 p-4 my-4">
-                    <h2 class="text-center mb-4 fw-bold">Sign Up</h2>
+                    <h2 class="text-left mb-4 fw-bold" style="color: #b59780;">Sign Up</h2>
                 
                 <form method="POST" action="{% url 'account_signup' %}">
                     {% csrf_token %}
@@ -19,12 +19,12 @@
                     </div>
                     
                     <div class="d-grid gap-2 mt-4">
-                        <button type="submit" class="btn btn-dark">Register</button>
+                        <button type="submit" class="btn" style="background-color: #b59780; border-color: #000;">Register</button>
                     </div>
                 </form>
                 
                 <div class="text-center mt-4 border-top pt-3">
-                    <p class="text-muted mb-0">Already have an account? <a href="{% url 'account_login' %}" class="link-dark fw-bold text-decoration-none">Sign In</a></p>
+                    <p class="text-muted mb-0">Already a member in ArtBiz family? <a href="{% url 'account_login' %}" class="link-dark fw-bold text-decoration-none">Sign In</a></p>
                 </div>
             </div>
         </div>
