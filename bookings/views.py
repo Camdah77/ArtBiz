@@ -42,3 +42,41 @@ def book_service(request, service_id):
         'service': service,
     }
     return render(request, 'book_service.html', context)
+
+@login_required
+def edit_booking(request, booking_id):
+    """Allow logged-in users to edit their own booking"""
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Your booking for "{booking.service.title}" has been updated.')
+            return redirect('dashboard')
+    else:
+        form = BookingForm(instance=booking)
+
+    context = {
+        'form': form,
+        'booking': booking,
+        'service': booking.service,
+    }
+    return render(request, 'edit_booking.html', context)
+
+
+@login_required
+def delete_booking(request, booking_id):
+    """Allow logged-in users to cancel/delete their own booking"""
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+
+    if request.method == 'POST':
+        service_title = booking.service.title
+        booking.delete()
+        messages.success(request, f'Your booking for "{service_title}" has been cancelled.')
+        return redirect('dashboard')
+
+    context = {
+        'booking': booking,
+    }
+    return render(request, 'delete_booking.html', context)

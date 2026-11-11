@@ -2,8 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView  
 from subscriptions.views import service_view
-# Collect event_view and dashboard from bookings.views here:
-from bookings.views import event_view, dashboard, book_service
+from bookings.views import event_view, dashboard, book_service, edit_booking, delete_booking
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
@@ -14,4 +13,7 @@ urlpatterns = [
     path('events/', event_view, name='events'),
     path('accounts/dashboard/', dashboard, name='dashboard'),
     path('book/<int:service_id>/', book_service, name='book_service'),
+    path('booking/edit/<int:booking_id>/', edit_booking, name='edit_booking'),
+    path('booking/delete/<int:booking_id>/', delete_booking, name='delete_booking'),
 ]
+
