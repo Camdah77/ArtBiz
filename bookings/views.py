@@ -17,7 +17,12 @@ def dashboard(request):
 
 
 def event_view(request):
-    return render(request, 'event.html')
+    """Collects all bookable events/services and displays them"""
+    services = Service.objects.all()
+    context = {
+        'services': services,
+    }
+    return render(request, 'event.html', context)
 
 
 @login_required

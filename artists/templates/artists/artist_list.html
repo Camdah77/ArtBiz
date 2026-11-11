@@ -2,39 +2,73 @@
 {% load static %}
 
 {% block content %}
-<div class="container py-5" >
+<div class="container py-5">
     
-    <!-- Same headings style on all pages -->
+    <!-- Page Header -->
     <div class="row mb-4">
         <div class="col-12 text-start">
-             <h1 class="display-6 fw-bold" style="color: #b59780; margin-bottom: 20px; padding-top: 40px">Our Artists</h1>
+            <h1 class="display-6 fw-bold" style="color: #b59780; margin-bottom: 20px; padding-top: 40px;">Our Artists</h1>
             <p class="lead text-muted small">Discover the creative minds transforming corporate spaces.</p>
             <hr class="border-secondary opacity-25" style="width: 100px; margin: 15px 0 0 0;">
         </div>
     </div>
 
-    <!-- Information Cards -->
+    <!-- Artist Cards -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for artist in artists %}
         <div class="col">
-            <div class="card h-100 shadow-sm border-0">
+            <div class="card h-100 shadow-sm border-0 service-card">
                 {% if artist.image_profile %}
-                <img src="{{ artist.image_profile }}" class="card-img-top object-fit-cover" alt="{{ artist.artist_name }}" style="height: 250px;">
+                    <img src="{{ artist.image_profile }}" class="card-img-top object-fit-cover" alt="{{ artist.artist_name }}" style="height: 250px;">
                 {% endif %}
                 
-                <div class="card-body d-flex flex-column">
-                    <h3 class="card-title h5 fw-bold mb-3">{{ artist.artist_name }}</h3>
-                    <p class="card-text text-muted flex-grow-1">{{ artist.description }}</p>
+                <div class="card-body d-flex flex-column p-4">
+                    <h2 class="card-title h5 fw-bold mb-3">{{ artist.artist_name }}</h2>
+                    <div class="service-description text-muted flex-grow-1">
+                        {{ artist.description|linebreaks }}
+                    </div>
 
-                        {% if artist.exhibitions %}
-                        <div class="mt-3 small text-secondary">
+                    {% if artist.exhibitions %}
+                        <div class="mt-3 pt-3 border-top small text-secondary">
                             <strong>Exhibitions:</strong> {{ artist.exhibitions }}
                         </div>
-                        {% endif %}
+                    {% endif %}
 
+                    <!-- Featured Artwork Preview (byt 'artwork_image' mot ditt fältnamn i models.py) -->
+                    {% if artist.image_art %}
+                        <div class="mt-4 pt-3 border-top">
+                            <p class="small fw-bold text-uppercase text-muted mb-2">Featured Artwork</p>
+                            <div class="position-relative" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#artworkModal{{ artist.id }}">
+                                <img src="{{ artist.image_art}}" class="img-fluid rounded shadow-sm w-100 object-fit-cover" alt="Artwork by {{ artist.artist_name }}" style="height: 160px;">
+                                <span class="badge bg-dark position-absolute bottom-0 end-0 m-2 opacity-75">
+                                    <i class="fas fa-expand-alt me-1"></i>Enlarge
+                                </span>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
+
+        <!-- Artwork Lightbox Modal -->
+        {% if artist.image_art %}
+        <div class="modal fade" id="artworkModal{{ artist.id }}" tabindex="-1" aria-labelledby="artworkModalLabel{{ artist.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content border-0 shadow">
+                    <div class="modal-header bg-light">
+                        <h5 class="modal-title fw-bold text-dark" id="artworkModalLabel{{ artist.id }}">
+                            Featured Artwork by {{ artist.artist_name }}
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center p-4 bg-white">
+                        <img src="{{ artist.image_art}}" class="img-fluid rounded shadow-sm" alt="Artwork by {{ artist.artist_name }}" style="max-height: 70vh;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
         {% empty %}
         <div class="col-12 text-center py-5">
             <p class="text-muted">No artists found in the database yet.</p>
