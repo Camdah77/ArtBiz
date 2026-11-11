@@ -1,10 +1,11 @@
+/* Global layout */
 body {
-    padding-top: 56px; /* Justera denna efter navbarens höjd */
+    padding-top: 56px;
     overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
-    }
+}
 
-/* Lås fast navbaren i toppen */
+/* Fixed navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -12,26 +13,39 @@ body {
     width: 100%;
     z-index: 1000;
 }
-/* Center and covered heroimage */
+
+/* Center and cover hero image */
 .hero-image {
-    height: 100%;                 
-    width: 100%;                  
-    background-size: cover;       
-    background-position: center; 
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     padding-top: 800px;
 }
 
-
-/* Själva grundcontainern för flip-kortet */
-.flip-card {
-    background-color: transparent;
-    width: 100%;             /* Tar upp hela bredden av col-md-6 */
-    height: 300px;           /* Samma höjd som dina andra rutor */
-    perspective: 1000px;     /* Ger 3D-effekten när det snurrar */
+/* Landing page checkerboard & full-width container */
+.container-fluid {
+    margin-top: 20px !important;
 }
 
-/* Containern som faktiskt roterar */
+.container-fluid.px-0.mx-0 {
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+}
+
+/* Flip cards on landing page */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+}
+
 .flip-card-inner {
     position: relative;
     width: 100%;
@@ -41,46 +55,82 @@ body {
     transform-style: preserve-3d;
 }
 
-/* Snurra kortet vid hover */
 .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
 }
 
-/* Gemensamma stilar för fram- och baksida */
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Döljer baksidan när den är vänd bort */
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    color: #fff;                        /* Vit text på båda sidor */
-    padding: 20px;                      /* Lite luft till kanterna */
+    color: #ffffff;
+    padding: 20px;
 }
 
-/* Framsidan specifikt */
-.flip-card-front {  
+.flip-card-front {
     background-color: transparent;
 }
 
-/* Baksidan specifikt */
 .flip-card-back {
-    /* Bakgrundsfärgen styrs direkt i HTML-koden ovan */
-    transform: rotateY(180deg);        /* Startar spegelvänd så den blir rätt när kortet snurrar */
+    transform: rotateY(180deg);
 }
 
-
-/* Lägg också till denna för att säkerställa att schackrutorna syns */
-.container-fluid {
-    margin-top: 20px !important;
+/* Services page */
+.services-header {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
 }
 
+.service-card {
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Montserrat', sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-/* Gör att ditt schackmönster också sträcker sig över 100% av skärmbredden */
-.container-fluid.px-0.mx-0 {
-    width: 100vw !important;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw !important;
-    margin-right: -50vw !important;
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.service-type-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #212529;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.price-tag {
+    font-size: 20px;
+    font-weight: bold;
+    color: #212529;
+}
+
+/* Reusable ArtBiz buttons */
+.btn-artbiz {
+    background-color: #b59780;
+    color: #ffffff;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.btn-artbiz:hover {
+    background-color: #212529;
+    color: #ffffff;
 }
