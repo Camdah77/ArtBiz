@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body p-4 p-md-5">
+                     <h1 class="display-6 fw-bold" style="color: #b59780; margin-bottom: 20px; padding-top: 40px">Book an event</h1>
+                    <p class="text-muted mb-4">Complete the form below to request a booking.</p>
+
+                    <!-- Selected Service Summary -->
+                    <div class="p-3 mb-4 bg-light rounded">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <h5 class="fw-bold mb-0">{{ service.title }}</h5>
+                            <span class="badge bg-dark text-uppercase">{{ service.get_service_type_display }}</span>
+                        </div>
+                        <div class="service-description text-muted mb-3">
+                            {{ service.description|linebreaks }}
+                        </div>
+                        <p class="price-tag mb-0">${{ service.price }}</p>
+                    </div>
+
+                    <!-- Booking Form -->
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        {% for field in form %}
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label fw-bold">
+                                {{ field.label }}
+                            </label>
+                            {{ field }}
+                            {% if field.errors %}
+                            <div class="text-danger small mt-1">
+                                {{ field.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn" style="background-color: #b59780; border-color: #000;">Confirm Booking</button>
+                            <a href="{% url 'services' %}" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
