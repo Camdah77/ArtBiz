@@ -45,16 +45,38 @@ Art Biz a fictitious company, created as part of project work at the Code Instit
 ## Design
 
 ### Wireframe
+Landingpage
+![Landingpage](preview.jpg)
+Our Service
+![alt text](preview-2.jpg)
+Events!
+[Events](preview-1.jpg)
+Artists
+![Artists](preview-3.jpg)
+Login
+![Login](preview-4.jpg)
+Signup
+![SignUp](preview-5.jpg)
+404
+![404](preview-6.jpg)
+Dashboard
+![Dashboard](preview-7.jpg)
 
 ### Colour Scheme:
+![Color Scheme](preview-8.jpg)
+
+#212529 Used for header & footer
+#b59780 Used for Headings (H1) and buttons
 
 ### Typography
 Montserrat  is selected as the main font in the running text, headings, navigation and buttons.
+Used and added via Google Fonts
 
 ### Imagery
 
 All images are taken from free library from canvas.com 
-All artwork-example are created by my self and belongs to me, Camilla Dahlström.
+The artworks on the landing page and Art to office -event (on the eventpage) are created by my self and belongs to me, Camilla Dahlström.
+After downloaded from Canvas - I uploaded theme to cloudinary.com. 
 
 ## Features
 
