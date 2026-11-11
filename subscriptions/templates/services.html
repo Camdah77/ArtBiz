@@ -52,19 +52,23 @@
     }
 </style>
 
-<div class="container py-5">
-    <!-- Rubrik och Intro -->
-    <div class="text-center mb-5">
-        <h1 class="display-4 services-header font-weight-bold">Our Services & Experiences</h1>
-        <p class="lead text-muted max-width-600 mx-auto">Explore our curated classes, professional office consulting, and dynamic art subscriptions designed to inspire creativity.</p>
+<div class="container py-5" >
+   <div class="row mb-4">
+        <div class="col-12 text-start">
+            <h1 class="display-6 fw-bold" style="color: #b59780; margin-bottom: 20px; padding-top: 40px">Our Services</h1>
+            <p class="lead text-muted small">Explore our curated classes, professional office consulting, and dynamic art subscriptions designed to inspire creativity.</p>
+               <hr class="border-secondary opacity-25" style="width: 100px; margin: 15px 0 0 0;">
+        </div>
     </div>
 
-    <!-- Tjänstelista -->
+
+
+    <!-- Service List -->
     <div class="row row-cols-1 row-cols-md-2 g-4">
         {% for service in services %}
             <div class="col">
                 <div class="card h-100 shadow-sm service-card p-2 position-relative bg-white">
-                    <!-- Badge för typ av tjänst -->
+                    <!-- Badge, type of service -->
                     <span class="service-type-badge">{{ service.get_service_type_display }}</span>
                     
                     <div class="card-body d-flex flex-column p-4 pt-5">
@@ -78,7 +82,7 @@
                             <span class="price-tag">${{ service.price }}</span>
                         </div>
                         
-                        <!-- Boka-knapp som leder till bokningssidan (eller inlogg om man är utloggad) -->
+                        <!-- Button for booking (or login if not authenticated) -->
                         {% if user.is_authenticated %}
                             <a href="#" class="btn btn-artbiz">Book Now</a>
                         {% else %}
@@ -88,7 +92,7 @@
                 </div>
             </div>
         {% empty %}
-            <!-- Om inga tjänster lagts till i databasen än -->
+            <!-- If no services are available -->
             <div class="col-12 text-center py-5">
                 <p class="text-muted lead">No services available at the moment. Please check back later!</p>
             </div>

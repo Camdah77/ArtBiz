@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- Vi ser till att containern har rätt padding i toppen under navbaren -->
 <div class="container" style="padding-top: 80px; margin-bottom: 60px;">
     
-    <!-- Ändrad rad: Helt vänsterjusterad text (text-start) -->
+    <!-- Same headings style on all pages -->
     <div class="row mb-4">
         <div class="col-12 text-start">
-            <h1 class="display-6 fw-bold" style="color: #b59780; margin-bottom: 5px;">Our Artists</h1>
+             <h1 class="display-6 fw-bold" style="color: #b59780; margin-bottom: 20px; padding-top: 40px">Our Artists</h1>
             <p class="lead text-muted small">Discover the creative minds transforming corporate spaces.</p>
-            <!-- Vi gör det lilla dekorationsstrecket vänsterjusterat och snyggt -->
             <hr class="border-secondary opacity-25" style="width: 100px; margin: 15px 0 0 0;">
         </div>
     </div>
 
-    <!-- Dina kort (row row-cols-1 row-cols-md-3 g-4) startar här på exakt samma linje -->
+    <!-- Information Cards -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for artist in artists %}
         <div class="col">
