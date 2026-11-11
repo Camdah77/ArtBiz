@@ -1,35 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Denna div täcker hela skärmen med bakgrundsbilden -->
-<div style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794154432/hero_office_matstp.jpg'); background-size: cover; background-position: center; min-height: 100vh; w-100;">
-    
-    <!-- Containern ligger inuti för att hålla inloggningsrutan centrerad -->
+<!-- Full-screen background container -->
+<div class="auth-bg w-100" style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794154432/hero_office_matstp.jpg');">
     <div class="container pt-5">
-        <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="row justify-content-center align-items-center auth-row">
             <div class="col-md-6 col-lg-5">
                 <div class="card shadow-lg border-0 p-4 my-4">
-                    <h2 class="text-left mb-4 fw-bold" style="color: #b59780;">Sign in</h2>
-                    
+                    <h1 class="h2 text-start mb-4 fw-bold page-title">Sign In</h1>
+
                     <form method="POST" action="{% url 'account_login' %}">
                         {% csrf_token %}
-                        
+
                         <div class="mb-3">
                             {{ form.as_p }}
                         </div>
-                        
+
                         <div class="d-grid gap-2 mt-4">
-                            <button type="submit" class="btn" style="background-color: #b59780; border-color: #000;">Log In</button>
+                            <button type="submit" class="btn btn-artbiz">Log In</button>
                         </div>
                     </form>
-                    
+
                     <div class="text-center mt-4 border-top pt-3">
-                        <p class="text-muted mb-0">Want to join the ArtBiz family? <a href="{% url 'account_signup' %}" class="link-dark fw-bold text-decoration-none">Sign Up</a></p>
+                        <p class="text-muted mb-0">
+                            Want to join the ArtBiz family?
+                            <a href="{% url 'account_signup' %}" class="link-dark fw-bold text-decoration-none">Sign Up</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 {% endblock %}

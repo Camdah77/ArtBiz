@@ -1,33 +1,43 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ArtBiz connects artists and businesses.">
     <meta name="keywords" content="ArtBiz, art, business, artists, events, services">
-   
-    <title>ArtBiz - Connects art and business</title>  
+
+    <title>ArtBiz - Connects art and business</title>
     <link rel="icon" type="image/jpeg" href="{% static 'images/favicon_artbiz.jpg' %}">
 
-    <!-- Bootstrap CSS  -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<!-- d-flex flex-column min-vh-100 to keep footer at the bottom -->
+<!-- Keep footer pushed to the bottom -->
 <body class="d-flex flex-column min-vh-100">
     <header>
-        <!-- Bootstrap (Navbar) = fixed top -->   
+        <!-- Fixed top Bootstrap navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-               <a class="navbar-brand" href="{% url 'home' %}">
-                 <img src="{% static 'images/ArtBizLogo.png' %}" alt="ArtBiz Logo" style="height: 80px;">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'images/ArtBizLogo.png' %}" alt="ArtBiz Logo" class="navbar-logo">
                 </a>
-                     <div class="collapse navbar-collapse" id="navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Our Service</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Our Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">Events</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'artist_list' %}">Artists</a></li>
                         {% if user.is_authenticated %}
@@ -39,39 +49,40 @@
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                 <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                            </li>       
+                                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'account_signup' %}">Sign up</a>
-                         </li>
-                    {% endif %}
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-<!-- Django Messages / Alerts when booking is changed -->
-{% if messages %}
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-sm" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-{% endif %}
-    <!-- flex-grow-1 push footer to the bottom -->
-    <main class="flex-grow-1">
 
-                {% block content %}
+    <!-- Main content area -->
+    <main class="flex-grow-1">
+        <!-- Django Messages / Alerts -->
+        {% if messages %}
+        <div class="container mt-5 pt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-sm" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% block content %}
         {% endblock %}
     </main>
-   
+
     <!-- Footer -->
     <footer class="footer bg-dark text-white text-center py-4 w-100">
         <div class="container">
@@ -79,9 +90,10 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JavaScript -->
+    <!-- Bootstrap & Custom JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'js/script.js' %}"></script>
-   
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/e48964c33a.js" crossorigin="anonymous"></script>
 </body>
 </html>

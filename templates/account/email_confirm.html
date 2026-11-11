@@ -1,57 +1,21 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<style>
-    .custom-card {
-        background: #ffffff;
-        border-radius: 8px;
-        text-align: center;
-        width: 100%;
-        font-family: 'Montserrat', sans-serif;
-    }
-    .custom-card h1 {
-        color: #2c3e50;
-        margin-bottom: 20px;
-        font-size: 24px;
-    }
-    .custom-card p {
-        font-size: 16px;
-        line-height: 1.5;
-        color: #666;
-        margin-bottom: 30px;
-    }
-    .btn-artbiz {
-        display: inline-block;
-        background-color: #b59780;
-        color: #ffffff;
-        padding: 12px 24px;
-        text-decoration: none;
-        border-radius: 4px;
-        font-weight: bold;
-        transition: background-color 0.2s;
-        border: none;
-        cursor: pointer;
-    }
-    .btn-artbiz:hover {
-        background-color: #212529;
-        color: #ffffff;
-    }
-</style>
-
-<div style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794212297/conformed_hero_ea36ae.jpg'); background-size: cover; background-position: center; min-height: 100vh; width: 100%;">
+<div class="auth-bg w-100" style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794212297/conformed_hero_ea36ae.jpg');">
     <div class="container pt-5">
-        <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="row justify-content-center align-items-center auth-row">
             <div class="col-md-6 col-lg-5">
                 <div class="card shadow-lg border-0 p-5 my-4 custom-card">
                     <h1>Confirm E-mail Address</h1>
-                    
+
                     {% if confirmation %}
                         <p>Please confirm that <strong class="text-dark">{{ confirmation.email_address.email }}</strong> is your e-mail address.</p>
-                        
-                        <!-- Detta är formuläret och knappen som faktiskt aktiverar kontot -->
+
+                        <!-- Form and button that activates the user account -->
                         <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
                             {% csrf_token %}
-                            <button type="submit" class="btn-artbiz">Confirm Email</button>
+                            <button type="submit" class="btn btn-artbiz">Confirm Email</button>
                         </form>
                     {% else %}
                         <p>This email confirmation link has expired or is invalid.</p>
@@ -62,3 +26,4 @@
     </div>
 </div>
 {% endblock %}
+    

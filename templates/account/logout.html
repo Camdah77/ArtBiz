@@ -1,24 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Denna div täcker hela skärmen med bakgrundsbilden -->
-<div style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794058814/hero_artbiz_bob7uy.png'); background-size: cover; background-position: center; min-height: 100vh; w-100;">
-    
-    <!-- Containern ligger inuti för att hålla inloggningsrutan centrerad -->
+<!-- Full-screen background container -->
+<div class="auth-bg w-100" style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794058814/hero_artbiz_bob7uy.png');">
     <div class="container pt-5">
-        <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="row justify-content-center align-items-center auth-row">
             <div class="col-md-6 col-lg-5">
                 <div class="card shadow-lg border-0 p-4 my-4">
-                <h2 class="text-left mb-4 fw-bold" style="color: #b59780;">Sign Out</h2>
-                <p class="text-muted mb-4">Hope to see you again soon!</p>
-                
-                <form method="POST" action="{% url 'account_logout' %}">
-                    {% csrf_token %}
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn" style="background-color: #b59780; border-color: #000;">Sign Out</button>
-                        <a href="/" class="btn btn-outline-secondary">Cancel</a>
-                    </div>
-                </form>
+                    <h1 class="h2 text-start mb-4 fw-bold page-title">Sign Out</h1>
+                    <p class="text-muted mb-4">Hope to see you again soon!</p>
+
+                    <form method="POST" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-artbiz">Sign Out</button>
+                            <a href="{% url 'home' %}" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
