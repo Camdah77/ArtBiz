@@ -1,16 +1,33 @@
+import os
 from pathlib import Path
+import dj_database_url
 from django.contrib.messages import constants as messages
+
+# Load local environment variables if env.py exists
+if os.path.isfile('env.py'):
+    import env  # noqa: F401
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q-_zy2q1*i@2hk(c@m$&m^+_!ihv2(9fi-qt@wod4hu(es8sq7'
+# Security key retrieved from environment variables
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Enable DEBUG locally when DEVELOPMENT is set; False in production
+DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.onrender.com']
+
+# Automatically add Render's external hostname if present
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+    'https://*.onrender.com',
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -22,13 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'crispy_forms',
-    
-     # Allauth:
+
+    # Allauth authentication apps
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-        
-    # Local apps
+
+    # Local project apps
     'artists',
     'bookings',
     'subscriptions',
@@ -43,18 +60,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    # Lägg till denna rad längst ner:
     'allauth.account.middleware.AccountMiddleware',
 ]
+
 SITE_ID = 1
 ROOT_URLCONF = 'pp4.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # DENNA RAD MÅSTE FINNAS MED OCH VARA STAVAD EXAKT SÅ HÄR:
-        'DIRS': [BASE_DIR / 'templates'], 
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,100 +85,94 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pp4.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/6.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Database configuration: PostgreSQL in production, SQLite locally
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
-# https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+        ),
     },
 ]
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/6.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.1/howto/static-files/
-
-
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-# Talar om för Django var filerna ska samlas ihop vid publicering
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Whitenoice to serve static files in production
+# WhiteNoise storage backend for serving static files in production
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
-    "staticfiles": {  
+    "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 
 AUTHENTICATION_BACKENDS = [
-    # Behövs för att logga in i Djangos vanliga adminpanel
     'django.contrib.auth.backends.ModelBackend',
-    # Allauth-specifika inloggningsmetoder
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-# --- MODERNA DJANGO-ALLAUTH INSTÄLLNINGAR ---
-# Bestämmer hur användaren loggar in (både användarnamn och e-post tillåts)
+# Django-Allauth configuration
 ACCOUNT_LOGIN_METHODS = {'username', 'email'}
-
-# Kräver e-post (stjärnan * betyder obligatorisk) vid registrering
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
-
-# Tillåt inloggning utan att länken MÅSTE klickas (bryter loopen!)
 ACCOUNT_EMAIL_VERIFICATION = "optional"
 ACCOUNT_LOGIN_ON_SIGNUP = False
-
-# Tvinga Django att skicka användaren till verifieringssidan direkt efter registrering
 ACCOUNT_SIGNUP_REDIRECT_URL = '/accounts/confirm-email/'
 
-LOGIN_REDIRECT_URL = '/accounts/dashboard/'      # Skickar alla inloggade till dashboarden
-LOGOUT_REDIRECT_URL = '/'                        # Skickar utloggade till startsidan
+LOGIN_REDIRECT_URL = '/accounts/dashboard/'
+LOGOUT_REDIRECT_URL = '/'
 
-
-# --- E-POST KONFIGURATION (Djangos Console Backend) ---
-# Skriver ut alla bekräftelsemejl direkt i din VS Code-terminal istället för att skicka på riktigt
+# Console email backend for development & grading
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# Bootstrap alert message tags
 MESSAGE_TAGS = {
     messages.DEBUG: 'secondary',
     messages.INFO: 'info',
