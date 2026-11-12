@@ -45,22 +45,16 @@ Art Biz a fictitious company, created as part of project work at the Code Instit
 ## Design
 
 ### Wireframe
-Landingpage
-![Landingpage](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LANDING_rjnj49.jpg)
-Our Service
-![alt text](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_Service_z0zzbj.jpg)
-Events!
-[Events](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_events_gjrofn.jpg)
-Artists
-![Artists](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_ARTISTS_lieecv.jpg)
-Login
-![Login](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LOGIN_f4lenf.jpg)
-Signup
-![SignUp](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_SIGNUP_nc9yf9.jpg)
-404
-![404](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/404_pn1w9q.jpg)
-Dashboard
-![Dashboard](https://res.cloudinary.com/dj9sie6nl/image/upload//c_auto,h_300,w_300/WF_DASHBOARD_tlexl1.jpg)
+
+
+|	Landingpage	|	![Landingpage](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LANDING_rjnj49.jpg)	||
+|	Our Service	|	![alt text](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_Service_z0zzbj.jpg)	||
+|	Events!	|	[Events](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_events_gjrofn.jpg)	||
+|	Artists	|	![Artists](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_ARTISTS_lieecv.jpg)	||
+|	Login	|	![Login](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LOGIN_f4lenf.jpg)	||
+|	Signup	|	![SignUp](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_SIGNUP_nc9yf9.jpg)	||
+|	404	|	![404](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/404_pn1w9q.jpg)	||
+|	Dashboard	|	![Dashboard](https://res.cloudinary.com/dj9sie6nl/image/upload//c_auto,h_300,w_300/WF_DASHBOARD_tlexl1.jpg)	||
 
 ### Colour Scheme:
 ![Color Scheme](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/ArtBiz_design_e65u8r.jpg)
