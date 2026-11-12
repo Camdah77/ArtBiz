@@ -53,7 +53,7 @@ Art Biz a fictitious company, created as part of project work at the Code Instit
 |	Events!	|	[Events](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_events_gjrofn.jpg)	|
 |	Artists	|	![Artists](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_ARTISTS_lieecv.jpg)	|
 |	Login	|	![Login](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LOGIN_f4lenf.jpg)	|
-|	Signup	|	![SignUp](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_SIGNUP_nc9yf9.jpg)	|
+|	Signup	|	![SignUp](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_SIGNUP_utoaqj.jpg)	|
 |	404	|	![404](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/404_pn1w9q.jpg)	|
 |	Dashboard	|	![Dashboard](https://res.cloudinary.com/dj9sie6nl/image/upload//c_auto,h_300,w_300/WF_DASHBOARD_tlexl1.jpg)	|
 

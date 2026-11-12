@@ -5,13 +5,13 @@ from .models import UserProfile
 
 class CustomSignupForm(SignupForm):
     first_name = forms.CharField(
-        max_length=30, label="Förnamn", required=True
+        max_length=30, label="First Name", required=True
     )
     last_name = forms.CharField(
-        max_length=30, label="Efternamn", required=True
+        max_length=30, label="Last Name", required=True
     )
     company_name = forms.CharField(
-        max_length=100, label="Företagsnamn", required=False
+        max_length=100, label="Company Name", required=False
     )
 
     def save(self, request):
