@@ -160,14 +160,28 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Django-Allauth configuration
-ACCOUNT_LOGIN_METHODS = {'username', 'email'}
-ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
+ACCOUNT_LOGIN_METHODS = {"username", "email"}
+ACCOUNT_SIGNUP_FIELDS = [
+    "email*",
+    "username*",
+    "first_name*",
+    "last_name*",
+    "company_name",  # Lägg till en * på slutet (company_name*) om det ska vara obligatoriskt
+    "password1*",
+    "password2*",
+]
+
 ACCOUNT_EMAIL_VERIFICATION = "optional"
 ACCOUNT_LOGIN_ON_SIGNUP = False
 ACCOUNT_SIGNUP_REDIRECT_URL = '/accounts/confirm-email/'
 
 LOGIN_REDIRECT_URL = '/accounts/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+ACCOUNT_FORMS = {
+    "signup": "subscriptions.forms.CustomSignupForm",
+}
 
 # Console email backend for development & grading
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
