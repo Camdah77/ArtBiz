@@ -1,6 +1,6 @@
 # ART BIZ
+![Logotype](/static/images/ArtBizLogo.png)<br>
 Art Biz is a fictitious B2B art consulting and event booking platform, created as part of the Full Stack Software Development program at Code Institute.
-![Logotype](/static/images/ArtBizLogo.png)
 
 ## Table of Contents
 + [UX](#ux)
@@ -62,7 +62,7 @@ This project was developed using **Agile principles** via GitHub Projects (Kanba
 ## Data Models & Database Architecture
 
 The application is built on a relational database architecture (**PostgreSQL** in production, **SQLite** during local development) structured into three modular Django apps (`booking`, `artists`, and `subscriptions`). This separation of concerns ensures scalability and prevents namespace collisions as the platform grows with more artists and corporate contracts. 
-* *(INSERT MY SCREENSHOT ).*
+MVC Framework	|	![MVC Framework ](https://res.cloudinary.com/dj9sie6nl/image/c_auto,h_300,w_300/v1794488250/MVC_rjlqsc.jpg)
 
 ### Key Models & Relationships
 * **User & UserProfile (`subscriptions` app):** Extends Django's built-in `User` model (`first_name`, `last_name`, `email`) via a **One-to-One relationship (`OneToOneField`)** to store B2B-specific data such as `company_name`.
@@ -76,15 +76,16 @@ Wireframes were created during the planning phase to establish layout hierarchy 
 
 
 # Wireframes
-|	Landingpage	|	![Landingpage](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LANDING_rjnj49.jpg)	|
-| :--- || :--- |
-|	Our Service	|	![alt text](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_Service_z0zzbj.jpg)	|
-|	Events!	|	[Events](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_events_gjrofn.jpg)	|
-|	Artists	|	![Artists](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_ARTISTS_lieecv.jpg)	|
-|	Login	|	![Login](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LOGIN_f4lenf.jpg)	|
-|	Signup	|	![SignUp](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_SIGNUP_utoaqj.jpg)	|
-|	404	|	![404](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/404_pn1w9q.jpg)	|
-|	Dashboard	|	![Dashboard](https://res.cloudinary.com/dj9sie6nl/image/upload//c_auto,h_300,w_300/WF_DASHBOARD_tlexl1.jpg)	|
+|	Landingpage	|	![Landingpage](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LANDING_rjnj49.jpg) |
+| :--- | :--- |
+|	Our Service	|	![Our Service](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_Service_z0zzbj.jpg) |
+|	Events!	|	[Events](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_events_gjrofn.jpg) |
+|	Artists	|	![Artists](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_ARTISTS_lieecv.jpg) |
+|	Login	|	![Login](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LOGIN_f4lenf.jpg) |
+|	Signup	|	![SignUp](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_SIGNUP_utoaqj.jpg) |
+|	404	|	![404](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/404_pn1w9q.jpg) |
+|	Dashboard	|	![Dashboard](https://res.cloudinary.com/dj9sie6nl/image/upload//c_auto,h_300,w_300/WF_DASHBOARD_tlexl1.jpg) |
+|	Content planning	|	![Content](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/planning_text_q9xkot.png) |
 
 ### Colour Scheme:
 ![Color Scheme](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/ArtBiz_design_e65u8r.jpg)
