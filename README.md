@@ -131,31 +131,53 @@ Custom registration flow capturing `first_name`, `last_name`, and `company_name`
 
 ## Testing
 
-
 ### Manual & CRUD Testing
+All features, forms, and user permissions were manually tested across desktop and mobile viewports:
+
+| Feature | Action | Expected Result | Pass/Fail |
+| :--- | :--- | :--- | :--- |
+| **User Registration** | Sign up with First Name, Last Name, Email & Company Name | User and linked `UserProfile` created in database | Pass |
+| **Create Booking** | Submit booking form while logged in | Booking saved and displayed on Dashboard as *Pending* | Pass |
+| **Update Booking** | Edit date/participants on an existing booking | Updated details reflected immediately on Dashboard | Pass |
+| **Cancel Booking** | Confirm cancellation in modal | Booking status updated / removed | Pass |
+| **Edit Profile** | Update First Name, Last Name, or Company Name | Changes saved and displayed on Dashboard & Admin | Pass |
+| **Delete Account** | Confirm permanent account deletion | User logged out and `User` + `UserProfile` deleted | Pass |
+| **Defensive Security** | Access `/accounts/dashboard/` or `/profile/edit/` while logged out | Redirected to Login page | Pass |
+
 ### Validator Testing
-#### Unfixed Bugs
+* **HTML:** Validated via W3C Markup Validator — *"Document checking complete. No errors or warnings to show."*
+* **CSS:** Validated via W3C Jigsaw CSS Validator — *"No error found."*
+* **Python (PEP8):** Checked via CI Python Linter — *"All clear, no errors found."*
+* **Lighthouse:** *(INSERT MY IMAGE).*
+
+### Unfixed Bugs
+* There are no known unfixed bugs at the time of submission.
+
 
 ## Technologies Used
 
 ### Main Languages Used
-- HTML
-- CSS
+- HTML5
+- CSS3
 - JavaScript
-- Python
-
+- Python 3
 
 ### Frameworks, Libraries & Programs Used
-- Google Fonts - Font families:  Montserrat. San-serif was used as a default font.
-- Font Awesome -Icons to the social links in the footer element and hamburger icon in navigation bar for 
-  mobil devices.
-- GitHub - to store my repository for submission.
-- Canva.com - Designed images and presentations and saved as png-files
-
-- Am I Responsive? - to ensure the project looked good across all devices.
-- 
+- Django (v6.1.3)– High-level Python web framework used for MVT architecture, routing, and ORM.
+- Django Allauth (v65.21.1) – Integrated user authentication, registration, and account management.
+- Bootstrap 5 & Django-Bootstrap5 / Crispy Forms – Responsive grid system, cards, modals, and clean form styling.
+- PostgreSQL (`psycopg2-binary` & `dj-database-url`)** – Relational database management in production.
+- Cloudinary – Cloud-based image hosting and optimization.
+- Gunicorn– Python WSGI HTTP server used to run the application in production.
+- WhiteNoise– Static file serving directly from Django in production.
+- Google Fonts– Typography, Font families:  Montserrat. San-serif was used as a default font.
+- Font Awesome – Scalable vector icons for navigation, dashboard cards, and social links.
+- Git & GitHub – Version control and Agile project tracking.
+- Canva – Logo creation, colour palette design, and visual assets.
+- Am I Responsive? – Multi-device responsiveness verification.
+- Render  - Deployment
+ 
 ## Deployment
-
 
 ## Credits
 
