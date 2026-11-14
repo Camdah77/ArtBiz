@@ -123,20 +123,18 @@ Custom registration flow capturing `first_name`, `last_name`, and `company_name`
   - Delete: Cancel bookings via a confirmation modal displaying the cancellation policy, or permanently delete the user account (`Delete Account`) with defensive confirmation prompts.
   - Admin Panel: Customized Django Admin interface displaying company names inline and in the user list overview for streamlined management.
 
+### Future Features
+  - Artist Portal: Allow verified artists to create their own accounts, upload new artworks directly to the gallery, and track exhibition requests.
+  - Art Leasing & Subscription Management: Automated recurring billing (via Stripe) for companies subscribing to rotating office art collections.
+  - Interactive Virtual Gallery: An augmented reality (AR) or room-visualizer tool enabling corporate clients to preview artworks on their own office walls before booking.
+  - Automated Email Notifications: Instant booking confirmations and calendar invites sent automatically to both the client and the Art Biz team.
 
-### Validator Testing 
+## Testing
 
-- HTML: 
-All pages were "Document checking complete. No errors or warning to show"
-PICTURES:
 
-- CSS: 
-Css-file is checking and complete.
-PICTURES:
-
-- Lighthouse:
-PICTURES:
-
+### Manual & CRUD Testing
+### Validator Testing
+#### Unfixed Bugs
 
 ## Technologies Used
 
