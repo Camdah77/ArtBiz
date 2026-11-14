@@ -79,16 +79,16 @@ Wireframes were created during the planning phase to establish layout hierarchy 
 |	Landingpage	|	![Landingpage](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LANDING_rjnj49.jpg) |
 | :--- | :--- |
 |	Our Service	|	![Our Service](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_Service_z0zzbj.jpg) |
-|	Events!	|	[Events](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_events_gjrofn.jpg) |
+|	Events!	|	![Events](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_events_gjrofn.jpg) |
 |	Artists	|	![Artists](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_ARTISTS_lieecv.jpg) |
 |	Login	|	![Login](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LOGIN_f4lenf.jpg) |
 |	Signup	|	![SignUp](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_SIGNUP_utoaqj.jpg) |
 |	404	|	![404](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/404_pn1w9q.jpg) |
 |	Dashboard	|	![Dashboard](https://res.cloudinary.com/dj9sie6nl/image/upload//c_auto,h_300,w_300/WF_DASHBOARD_tlexl1.jpg) |
-|	Content planning	|	![Content](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/planning_text_q9xkot.png) |
+|	Content |	![Content](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/planning_text_q9xkot.png) |
 
 ### Colour Scheme:
-![Color Scheme](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/ArtBiz_design_e65u8r.jpg)
+![Color Scheme](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/ArtBiz_design_e65u8r.jpg)<br>
 A minimalist, gallery-inspired palette was chosen to let the artwork stand out:
 * **`#212529` (Dark Charcoal):** Used for the navigation bar, footer, and primary text to ensure high contrast and readability.
 * **`#b59780` (Warm Taupe / Sand):** Used for primary headings (`H1`), accent borders, and call-to-action buttons (`btn-artbiz`).
@@ -107,6 +107,7 @@ Stock photography was sourced from **Canva's** free media library. All original 
 
 #### Navigation Bar 
 Dynamically adapts based on authentication state—displaying *Sign Up* and *Sign In* for visitors, and *Dashboard* and *Log Out* for authenticated users. Collapses into a hamburger menu on mobile devices.
+![Overview of Navbar and navlinks](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/navlinks_whe2qm.jpg)
 
 #### Landing Page 
 Features a full-width hero section introducing Art Biz's corporate value proposition, curated artwork previews, and clear call-to-action buttons.
