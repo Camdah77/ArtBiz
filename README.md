@@ -1,52 +1,81 @@
-ART BIZ
-Art Biz a fictitious company, created as part of project work at the Code Institute.
+# ART BIZ
+Art Biz is a fictitious B2B art consulting and event booking platform, created as part of the Full Stack Software Development program at Code Institute.
 ![Logotype](/static/images/ArtBizLogo.png)
 
-## Tabel of contents
-+ [UX](#ux "UX")
-  + [Site Purpose](#site-purpose "Site Purpose")
-  + [Site Goal](#site-goal "Site Goal")
-  + [Business Strategy](#business-strategy "Business Strategy")
-  + [Target Market](#target-market "Target Market")
-  + [Communication](#communication "Communication")
-+ [Design](#design "Design")
-  + [Wireframe](#wireframe "Wireframe")
-  + [Colour Scheme](#colour-scheme "Colour Scheme")
-  + [Typography](#typography "Typography")
-  + [Imagery](#imagery "Imagery")
-+ [Features](#features "Features")
-  + [Existing Features](#existing-features "Existing Features")
-+ [Testing](#testing "Testing")
-  + [Validator Testing](#validator-testing "Validator Testing")
-  + [Unfixed Bugs](#unfixed-bugs "Unfixed Bugs")
-+ [Technologies Used](#technologies-used "Technologies Used")
-  + [Main Languages Used](#main-languages-used "Main Languages Used")
-  + [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used "Frameworks, Libraries & Programs Used")
-+ [Deployment](#deployment "Deployment")
-+ [Credits](#credits "Credits")
-  + [Content](#content "Content")
+## Table of Contents
++ [UX](#ux)
+  + [Background & Inspiration](#background--inspiration)
+  + [Site Purpose](#site-purpose)
+  + [Site Goal](#site-goal)
+  + [Business Strategy](#business-strategy)
+  + [Target Market](#target-market)
+  + [Agile Methodology & User Stories](#agile-methodology--user-stories)
++ [Data Models & Database Architecture](#data-models--database-architecture)
++ [Design](#design)
+  + [Wireframes](#wireframes)
+  + [Colour Scheme](#colour-scheme)
+  + [Typography](#typography)
+  + [Imagery](#imagery)
++ [Features](#features)
+  + [Existing Features](#existing-features)
+  + [Future Features](#future-features)
++ [Testing](#testing)
+  + [Manual & CRUD Testing](#manual--crud-testing)
+  + [Validator Testing](#validator-testing)
+  + [Unfixed Bugs](#unfixed-bugs)
++ [Technologies Used](#technologies-used)
+  + [Main Languages Used](#main-languages-used)
+  + [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used)
++ [Deployment](#deployment)
++ [Credits](#credits)
   
 
 ## UX
 
-### Site Purpose:
+### Background & Inspiration
+For several years, I worked as a practicing artist and ran my own art gallery in one of Stockholm's largest shopping malls, selling both my own work and pieces by fellow artists. Through my experience in the industry, I know firsthand how difficult it is for artists to break through commercially without a traditional five-year fine arts degree or an exhaustive focus on personal branding on social media.
 
-### Site Goal:
+While unforeseen health challenges eventually forced me to step back from running the physical gallery, the next natural evolution of my business concept was always to bridge the B2B market—giving artists a fair platform to showcase and sell their work, while helping companies create vibrant, inspiring workspaces. 
 
+In this project, fictional artists and events are used to demonstrate the platform's core Minimum Viable Product (MVP). However, the system architecture is specifically designed to scale seamlessly with future add-on features for both artists and corporate clients.
 
-### Business Strategy:
+### Site Purpose
+Art Biz is a full-stack web application designed to bridge the gap between contemporary artists and corporate clients. The platform allows businesses to browse curated art services, explore featured artists, and book creative workshops, art rentals, or consulting sessions online.
 
+### Site Goal
+* Provide a seamless and intuitive booking experience for corporate clients.
+* Offer full **CRUD (Create, Read, Update, Delete)** functionality so users can manage their bookings and company profiles independently.
+* Ensure responsive design and accessibility across desktop, tablet, and mobile devices.
+
+### Business Strategy
+Art Biz operates on a **B2B (Business-to-Business)** model, offering corporate art subscriptions, office installations, and creative team-building events. By centralizing artist portfolios and service bookings in one digital platform, Art Biz streamlines client onboarding and reduces administrative overhead.
 
 ### Target Market
+* **Primary Audience:** Corporate decision-makers, office managers, and HR teams looking to enhance their workplace environment or host creative corporate events.
+* **Secondary Audience:** Contemporary artists seeking corporate exposure and structured commercial collaborations.
 
-### Communication
+### Agile Methodology & User Stories
+This project was developed using **Agile principles** via GitHub Projects (Kanban board) to plan, prioritize, and track user stories across sprints.
+* **MoSCoW Prioritization** was applied to categorize features into *Must Have*, *Should Have*, *Could Have*, and *Won't Have* to ensure a functional Minimum Viable Product (MVP) before adding enhancements.
+* *(INSERT MY SCREENSHOT ).*
+
+## Data Models & Database Architecture
+
+The application is built on a relational database architecture (**PostgreSQL** in production, **SQLite** during local development) structured into three modular Django apps (`booking`, `artists`, and `subscriptions`). This separation of concerns ensures scalability and prevents namespace collisions as the platform grows with more artists and corporate contracts. 
+* *(INSERT MY SCREENSHOT ).*
+
+### Key Models & Relationships
+* **User & UserProfile (`subscriptions` app):** Extends Django's built-in `User` model (`first_name`, `last_name`, `email`) via a **One-to-One relationship (`OneToOneField`)** to store B2B-specific data such as `company_name`.
+* **Service (`booking` app):** Stores the different corporate art services and events available for booking (title, description, service type, capacity/pricing).
+* **Booking (`booking` app):** Connects a `User` and a `Service` via **Foreign Keys (`ForeignKey`)**, recording `booking_date`, `number_of_participants`, `notes`, and `status` (*Pending*, *Confirmed*, *Cancelled*).
+* **Artist (`artists` app):** Manages the portfolio and biographical details of represented artists.
+*(INSERT MY RELATIONDRAWING ).*
+
+## Design 
+Wireframes were created during the planning phase to establish layout hierarchy and responsive behavior across viewports.
 
 
-## Design
-
-### Wireframe
-
-
+# Wireframes
 |	Landingpage	|	![Landingpage](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LANDING_rjnj49.jpg)	|
 | :--- || :--- |
 |	Our Service	|	![alt text](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_Service_z0zzbj.jpg)	|
@@ -59,39 +88,41 @@ Art Biz a fictitious company, created as part of project work at the Code Instit
 
 ### Colour Scheme:
 ![Color Scheme](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/ArtBiz_design_e65u8r.jpg)
-
-#212529 Used for header & footer
-#b59780 Used for Headings (H1) and buttons
+A minimalist, gallery-inspired palette was chosen to let the artwork stand out:
+* **`#212529` (Dark Charcoal):** Used for the navigation bar, footer, and primary text to ensure high contrast and readability.
+* **`#b59780` (Warm Taupe / Sand):** Used for primary headings (`H1`), accent borders, and call-to-action buttons (`btn-artbiz`).
+* **`#4a4a4a` (Slate Grey):** Used for secondary headings, subtexts, and subtle UI elements.
+* **`#ffffff` (Crisp White):** Used as the main background and card surface to create clean negative space.
 
 ### Typography
-Montserrat  is selected as the main font in the running text, headings, navigation and buttons.
-Used and added via Google Fonts
+*Montserrat** was selected as the primary typeface for headings, navigation, buttons, and body text to give the platform a clean, modern, and editorial feel. Imported via **Google Fonts** with `sans-serif` as the fallback font.
 
 ### Imagery
-
-All images are taken from free library from canvas.com 
-The artworks on the landing page and Art to office -event (on the eventpage) are created by my self and belongs to me, Camilla Dahlström.
-After downloaded from Canvas - I uploaded theme to cloudinary.com. 
+Stock photography was sourced from **Canva's** free media library. All original artworks featured on the landing page and the *Art to Office* event page were created by and belong to myself , **Camilla Dahlström**. All visual assets are hosted and delivered via **Cloudinary** for optimized loading performance.
 
 ## Features
 
 ### Existing Features
 
-### Navigation Bar
+#### Navigation Bar 
+Dynamically adapts based on authentication state—displaying *Sign Up* and *Sign In* for visitors, and *Dashboard* and *Log Out* for authenticated users. Collapses into a hamburger menu on mobile devices.
 
-#### Landing Page:
+#### Landing Page 
+Features a full-width hero section introducing Art Biz's corporate value proposition, curated artwork previews, and clear call-to-action buttons.
 
-#### Booking page
+#### Artists & Services Pages
+Allows potential clients to browse available corporate art events, consulting packages, and represented artists.
 
-#### Service page
+#### Authentication (`django-allauth`)
+Custom registration flow capturing `first_name`, `last_name`, and `company_name`, alongside secure login, logout, and email verification support.
 
-#### Login page
+#### User Dashboard (Full CRUD)
+  - Create: Authenticated users can book new events or consulting sessions.
+  - Read: View active and past bookings with real-time status badges (*Pending Approval*, *Confirmed*, *Cancelled*) alongside account details.
+  - Update: Edit existing bookings or update personal and company profile information (`Edit Profile`).
+  - Delete: Cancel bookings via a confirmation modal displaying the cancellation policy, or permanently delete the user account (`Delete Account`) with defensive confirmation prompts.
+  - Admin Panel: Customized Django Admin interface displaying company names inline and in the user list overview for streamlined management.
 
-#### Dashboard page
-
-#### Agile method
-
-## Testing 
 
 ### Validator Testing 
 
@@ -102,7 +133,6 @@ PICTURES:
 - CSS: 
 Css-file is checking and complete.
 PICTURES:
-
 
 - Lighthouse:
 PICTURES:
@@ -118,7 +148,7 @@ PICTURES:
 
 
 ### Frameworks, Libraries & Programs Used
-- Google Fonts - Font families:  League Spartan and Montserrat. San-serif was used as a default font.
+- Google Fonts - Font families:  Montserrat. San-serif was used as a default font.
 - Font Awesome -Icons to the social links in the footer element and hamburger icon in navigation bar for 
   mobil devices.
 - GitHub - to store my repository for submission.
@@ -146,5 +176,8 @@ PICTURES:
   Images, presentations are made in canva.com
   Hero image and image at the welcomepage is taken from canva´s image library.
 
-### Thank you
+### Acknowledgements & Thank You
+I began my studies at **Code Institute** in the autumn of 2023. Along the way, my family and I faced unexpected challenges that required me to put my own health and the well-being of my two sons first. 
+
+I want to extend my deepest gratitude to **Code Institute**, my mentors, and the student support team for their flexibility, encouragement, and for giving me the opportunity to complete my education and reach my goal of becoming a **Full Stack Software Developer**.
 
