@@ -57,19 +57,22 @@ Art Biz operates on a **B2B (Business-to-Business)** model, offering corporate a
 ### Agile Methodology & User Stories
 This project was developed using **Agile principles** via GitHub Projects (Kanban board) to plan, prioritize, and track user stories across sprints.
 * **MoSCoW Prioritization** was applied to categorize features into *Must Have*, *Should Have*, *Could Have*, and *Won't Have* to ensure a functional Minimum Viable Product (MVP) before adding enhancements.
-* *(INSERT MY SCREENSHOT ).*
+![Agile](https://res.cloudinary.com/dj9sie6nl/image/upload//c_auto,h_300,w_300/agile_project_github_tzs22w.jpgg)
 
 ## Data Models & Database Architecture
 
 The application is built on a relational database architecture (**PostgreSQL** in production, **SQLite** during local development) structured into three modular Django apps (`booking`, `artists`, and `subscriptions`). This separation of concerns ensures scalability and prevents namespace collisions as the platform grows with more artists and corporate contracts. 
-MVC Framework	|	![MVC Framework ](https://res.cloudinary.com/dj9sie6nl/image/c_auto,h_300,w_300/v1794488250/MVC_rjlqsc.jpg)
+![MVC Framework ](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/MVC_rjlqsc.jpg)
 
 ### Key Models & Relationships
 * **User & UserProfile (`subscriptions` app):** Extends Django's built-in `User` model (`first_name`, `last_name`, `email`) via a **One-to-One relationship (`OneToOneField`)** to store B2B-specific data such as `company_name`.
 * **Service (`booking` app):** Stores the different corporate art services and events available for booking (title, description, service type, capacity/pricing).
 * **Booking (`booking` app):** Connects a `User` and a `Service` via **Foreign Keys (`ForeignKey`)**, recording `booking_date`, `number_of_participants`, `notes`, and `status` (*Pending*, *Confirmed*, *Cancelled*).
 * **Artist (`artists` app):** Manages the portfolio and biographical details of represented artists.
-*(INSERT MY RELATIONDRAWING ).*
+![Planning realtionsship & database](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/models_planning_ed5dm4.jpg)
+![Overwiew adminpanel databases](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/django_admin_cubsr1.jpg)
+
+
 
 ## Design 
 Wireframes were created during the planning phase to establish layout hierarchy and responsive behavior across viewports.
@@ -107,16 +110,23 @@ Stock photography was sourced from **Canva's** free media library. All original 
 
 #### Navigation Bar 
 Dynamically adapts based on authentication state—displaying *Sign Up* and *Sign In* for visitors, and *Dashboard* and *Log Out* for authenticated users. Collapses into a hamburger menu on mobile devices.
-![Overview of Navbar and navlinks](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/navlinks_whe2qm.jpg)
+![Overview of Navbar and navlinks](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/navlinks_whe2qm.jpg)
 
 #### Landing Page 
 Features a full-width hero section introducing Art Biz's corporate value proposition, curated artwork previews, and clear call-to-action buttons.
+![Landingpage](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/Landing_site_saadcp.jpg)
+
 
 #### Artists & Services Pages
-Allows potential clients to browse available corporate art events, consulting packages, and represented artists.
+Allows potential clients to browse available artist and atworks.
+![ArtBiz Artists nad artworks](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/Landing_site_saadcp.jpg)
+![Services provided from Artbiz](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400//service_site_fiepw5.jpg)
+![Events availible for bookigs](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/event_site_rojigw.jpg)
+
 
 #### Authentication (`django-allauth`)
 Custom registration flow capturing `first_name`, `last_name`, and `company_name`, alongside secure login, logout, and email verification support.
+![SignUp & Login form](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/signin_signup_vio7tr.jpg)
 
 #### User Dashboard (Full CRUD)
   - Create: Authenticated users can book new events or consulting sessions.
@@ -124,6 +134,9 @@ Custom registration flow capturing `first_name`, `last_name`, and `company_name`
   - Update: Edit existing bookings or update personal and company profile information (`Edit Profile`).
   - Delete: Cancel bookings via a confirmation modal displaying the cancellation policy, or permanently delete the user account (`Delete Account`) with defensive confirmation prompts.
   - Admin Panel: Customized Django Admin interface displaying company names inline and in the user list overview for streamlined management.
+  ![Dashbord](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/dashboard_kvwsla.jpg) 
+  ![Modal cancelation policy](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/booking_changes_f0l16e.jpg) 
+  
 
 ### Future Features
   - Artist Portal: Allow verified artists to create their own accounts, upload new artworks directly to the gallery, and track exhibition requests.
@@ -154,7 +167,10 @@ All features, forms, and user permissions were manually tested across desktop an
 
 ### Unfixed Bugs
 * There are no known unfixed bugs at the time of submission.
-
+ ![Test](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/booking_changes_f0l16e.jpg) 
+ ![Test & solutions](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/test2_xnq866.jpg) 
+ ![Text ](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/test3_ukrnxi.jpg) 
+  
 
 ## Technologies Used
 
