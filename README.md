@@ -71,12 +71,10 @@ The application is built on a relational database architecture (**PostgreSQL** i
 * **Artist (`artists` app):** Manages the portfolio and biographical details of represented artists.
 ![Planning realtionsship & database](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/models_planning_ed5dm4.jpg)
 ![Overwiew adminpanel databases](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/django_admin_cubsr1.jpg)
-
-
+![Relations between databases](https://res.cloudinary.com/dj9sie6nl/image/upload//c_auto,h_300,w_300/sql_rqassl.jpg)
 
 ## Design 
 Wireframes were created during the planning phase to establish layout hierarchy and responsive behavior across viewports.
-
 
 # Wireframes
 |	Landingpage	|	![Landingpage](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_300,w_300/WF_LANDING_rjnj49.jpg) |
