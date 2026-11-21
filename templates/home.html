@@ -164,15 +164,38 @@
                     <div class="row">
                         <div class="col-sm-6 float-start"><img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1795257331/onboarding_zz24vf.jpg" ></div>
                         <div class="col-sm-6 float-end"> We are selective about who we collaborate with, ensuring we can build strong, long-term relationships together with our corporate clients. Here is how the process works:
-Fill out the form below. If we see a great fit for a collaboration, we will reach out to schedule a meeting. Until then, keep doing what you are passionate about—there is only one artist like you.</div>
+                    Fill out the form below. If we see a great fit for a collaboration, we will reach out to schedule a meeting. Until then, keep doing what you are passionate about—there is only one artist like you.</div>
                 </div>
                 </div>
              </div>
+   </div>
+<!-- Artist Application Section -->
+<section id="artist-apply" class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <div class="card shadow-sm border-0 p-4 p-md-5 bg-white">
+                    <h2 class="h3 text-center mb-3" style="color: #b59780;">Collaborate With ArtBiz</h2>
+                    <p class="text-muted text-center mb-4">
+                        We love collaborating with artists who bring passion both to their studio practice and to live corporate events. 
+                        We are selective about who we partner with, ensuring we can build strong, long-term relationships together with our corporate clients.
+                    </p>
+                    <p class="small text-secondary text-center mb-4">
+                        <strong>How it works:</strong> Fill out the form below. If we see a great fit for a collaboration, we will reach out to schedule a meeting. 
+                        Until then, keep doing what you are passionate about—there is only one artist like you.
+                    </p>
 
-
-
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn w-100 text-white fw-bold mt-2" style="background-color: #b59780;">
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <br>
+</section>
 
 {% endblock %}
