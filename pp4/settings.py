@@ -166,7 +166,7 @@ ACCOUNT_SIGNUP_FIELDS = [
     "username*",
     "first_name*",
     "last_name*",
-    "company_name",  # Lägg till en * på slutet (company_name*) om det ska vara obligatoriskt
+    "company_name",  
     "password1*",
     "password2*",
 ]
