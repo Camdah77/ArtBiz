@@ -156,20 +156,30 @@ All features, forms, and user permissions were manually tested across desktop an
 | **Edit Profile** | Update First Name, Last Name, or Company Name | Changes saved and displayed on Dashboard & Admin | Pass |
 | **Delete Account** | Confirm permanent account deletion | User logged out and `User` + `UserProfile` deleted | Pass |
 | **Defensive Security** | Access `/accounts/dashboard/` or `/profile/edit/` while logged out | Redirected to Login page | Pass |
+| **Form Validation (Booking)** | Submit booking form with a past date or 0 participants | Expected: Form rejected with clear validation error message | Pass |
+| **Cross-User Security (IDOR)** | Logged in as User A, attempt to access /bookings/edit/<id>/ or /bookings/delete/<id>/ belonging to User B | Expected: Access denied / redirected with error message | Pass |
+| **404 Error Handling** | Navigate to a non-existent URL (templates/404.html/) | Expected: Custom 404 page rendered with working navigation back to Home | Pass |
+| **Responsive Design** | Test layout on mobile (375px), tablet (768px), and desktop (1440px) via Chrome DevTools | Expected: No horizontal overflow, readable text, functional navbar | Pass |
 
 ### Validator Testing
 * **HTML:** Validated via W3C Markup Validator — *"Document checking complete. No errors or warnings to show."*
 * **CSS:** Validated via W3C Jigsaw CSS Validator — *"No error found."*
 * **Python (PEP8):** Checked via CI Python Linter — *"All clear, no errors found."*
 * **Lighthouse:** *(INSERT MY IMAGE).*
+* **JSHint / ESLint:**  *"No error found."*
+* **Interactive Components:** Verified that the responsive mobile navigation toggle (hamburger menu), confirmation modals (for deleting bookings and accounts), and dismissible Django alert messages trigger and close smoothly without layout shifts.
+* **Console Verification:** Inspected Chrome DevTools Console across all views and user actions to confirm zero JavaScript errors or failed resource loads.
+
+### JavaScript Testing
+As the project relies on Bootstrap 5's built-in JavaScript bundle rather than extensive custom scripts, JavaScript functionality was manually tested across Chrome, Firefox, and Safari:
+
 
 ### Unfixed Bugs
-* There are no known unfixed bugs at the time of submission.
+There are no known unfixed bugs at the time of submission.
  ![Test](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/booking_changes_f0l16e.jpg) 
  ![Test & solutions](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/test2_xnq866.jpg) 
  ![Text ](https://res.cloudinary.com/dj9sie6nl/image/upload/c_auto,h_400,w_400/test3_ukrnxi.jpg) 
   
-
 ## Technologies Used
 
 ### Main Languages Used
