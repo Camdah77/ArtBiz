@@ -3,7 +3,7 @@
 
 {% block content %}
 <!-- Hero Image -->
-<div class="hero-image" style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794058814/hero_artbiz_bob7uy.png');" role="img" aria-label="ArtBiz gallery workspace" crossorigin="anonymous" ></div>
+<div class="hero-image" style="background-image: url('https://res.cloudinary.com/dj9sie6nl/image/upload/v1794058814/hero_artbiz_bob7uy.png');" role="img" aria-label="ArtBiz gallery workspace"></div>
 
 <div class="container py-5 my-4">
     <!-- Page Heading -->
@@ -83,93 +83,94 @@
     </div>
 </div>
 
-    <!-- Collapsed presentation -->
-    <div class="container mt-3">
-        <div class="row mb-4">
-            <div class="col-12 text-start">
-            <h3 class="display-10 fw-bold page-title">Are you an artist?</h3>
+<!-- Collapsed presentation -->
+<div class="container mt-3 mb-5">
+    <div class="row mb-3">
+        <div class="col-12 text-start">
+            <h2 class="h3 fw-bold page-title">Are you an artist?</h2>
+            <p class="lead text-muted small">We are happy to share our passion for art and why we are the leading agency.</p>
+        </div>
+    </div>
+
+    <div class="accordion" id="accordion">
+        <!-- Collapsed 1 -->
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Our Vision
+                </button>
+            </h3>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                <div class="accordion-body">
+                    <div class="row align-items-center g-3">
+                        <div class="col-sm-6">
+                            <img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1795075585/exhibitions_jzntwo.png" alt="Contemporary art exhibition gallery" class="img-fluid rounded">
+                        </div>
+                        <div class="col-sm-6">
+                            Whether you have five years of art school under your belt or are new to the industry, it is easy to lose your way in a cutthroat environment. In recent years, a new arena has also emerged: the digital space. ArtBiz is the industry’s leading agency for artists, because we always stand on the artist’s side—whether it concerns exhibition terms, pricing for paintings, or fees for events. Would you like to become part of the ArtBiz artist pool? Apply today.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-            <p class="lead text-muted small">We are happy to share our passion for art why we are the leading agency.</p>
-                <div id="accordion">
-  
-         <!-- Collapsed 1 -->
-         <div class="card">
-            <div class="card-header">
-                <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-                 Our Vision
-                </a>
-            </div>
-      
-                <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
-                <div class="card-body">
-
-                    <div class="row">
-                        <div class="col-sm-6 float-start"><img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1795075585/exhibitions_jzntwo.png" alt="image of an art exhibition. Art Biz helps artists with exhibition terms, pricing for paintings, or fees for events" crossorigin="anonymous"></div>
-                        <div class="col-sm-6 float-end"> Whether you have five years of art school under your belt or are new to the industry, it is easy to lose your way in a cutthroat environment. In recent years, a new arena has also emerged: the digital space. ArtBiz is the industry’s leading agency for artists, because we always stand on the artist’s side—whether it concerns exhibition terms, pricing for paintings, or fees for events. Would you like to become part of the ArtBiz artist pool? Apply today.</div>
-                    </div>
-                </div>
-                </div>
-             </div>
-
 
         <!-- Collapsed 2 -->
-         <div class="card">
-            <div class="card-header">
-                <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
-                Our Goal
-                </a>
-            </div>
-      
-                <div id="collapseTwo" class="collapse show" data-bs-parent="#accordion">
-                <div class="card-body">
-
-                    <div class="row">
-                        <div class="col-sm-6 float-start"><img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1795252170/studio_ix9vdm.jpg" alt="Image of Artist Camilla Dahlstrom, in Studio." crossorigin="anonymous" ></div>
-                        <div class="col-sm-6 float-end">  We empower artists to focus on what they do best—creating—while we seamlessly bridge the gap between studio and workspace. Our mission is to bring vibrant, contemporary art into dynamic office environments, transforming everyday workplaces into inspiring spaces that spark creativity and reflect your brand’s identity.</div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Our Goal
+                </button>
+            </h3>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                <div class="accordion-body">
+                    <div class="row align-items-center g-3">
+                        <div class="col-sm-6">
+                            <img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1795252170/studio_ix9vdm.jpg" alt="Artist Camilla Dahlström working in her studio" class="img-fluid rounded">
+                        </div>
+                        <div class="col-sm-6">
+                            We empower artists to focus on what they do best—creating—while we seamlessly bridge the gap between studio and workspace. Our mission is to bring vibrant, contemporary art into dynamic office environments, transforming everyday workplaces into inspiring spaces that spark creativity and reflect your brand’s identity.
+                        </div>
                     </div>
                 </div>
-                </div>
-             </div>
-    
+            </div>
+        </div>
+
         <!-- Collapsed 3 -->
-         <div class="card">
-            <div class="card-header">
-                <a class="btn" data-bs-toggle="collapse" href="#collapseThree">
-                Our Wish
-                </a>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Our Wish
+                </button>
+            </h3>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
+                <div class="accordion-body">
+                    <div class="row align-items-center g-3">
+                        <div class="col-sm-6">
+                            <img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1795256522/event2022_vc3god.jpg" alt="ArtBiz live event in Stockholm with participating artists" class="img-fluid rounded">
+                        </div>
+                        <div class="col-sm-6">
+                            We love collaborating with artists who bring passion both to their studio practice and to live corporate events. By always putting fair conditions and artists' well-being first, we build lasting partnerships—which is why our artists choose to stay with us year after year.
+                        </div>
+                    </div>
+                </div>
             </div>
-      
-                <div id="collapseThree" class="collapse show" data-bs-parent="#accordion">
-                <div class="card-body">
+        </div>
 
-                    <div class="row">
-                        <div class="col-sm-6 float-start"><img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1795256522/event2022_vc3god.jpg" alt="Art Biz arrange events with Artists. Here in Stockholm with artist Tove Höglund, Stefan Wenztel och Camilla Dahlström" crossorigin="anonymous" ></div>
-                        <div class="col-sm-6 float-end">  We love collaborating with artists who bring passion both to their studio practice and to live corporate events. By always putting fair conditions and artists' well-being first, we build lasting partnerships—which is why our artists choose to stay with us year after year.</div>
-                </div>
-                </div>
-             </div>
+        <!-- Collapsed 4 -->
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Our Onboarding
+                </button>
+            </h3>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordion">
+                <div class="accordion-body">
+                    <div class="row align-items-center g-3">
+                        <div class="col-sm-6">
+                            <img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1795257331/onboarding_zz24vf.jpg" alt="Modern office space featuring artwork by Camilla Dahlström" class="img-fluid rounded">
+                        </div>
 
-             <!-- Collapsed 4 -->
-         <div class="card">
-            <div class="card-header">
-                <a class="btn" data-bs-toggle="collapse" href="#collapseFour">
-                Our Onboarding
-                </a>
-            </div>
-      
-                <div id="collapseFour" class="collapse show" data-bs-parent="#accordion">
-                <div class="card-body">
-
-                    <div class="row">
-                        <div class="col-sm-6 float-start"><img src="https://res.cloudinary.com/dj9sie6nl/image/upload/v1795257331/onboarding_zz24vf.jpg" alt="Image of office with art from Camilla Dahlström. If you like to come onboard please fill out the form" crossorigin="anonymous"  ></div>
-                        <div class="col-sm-6 float-end"> We are selective about who we collaborate with, ensuring we can build strong, long-term relationships together with our corporate clients. Here is how the process works:
-                    Fill out the form below. If we see a great fit for a collaboration, we will reach out to schedule a meeting. Until then, keep doing what you are passionate about—there is only one artist like you.</div>
-                </div>
-                </div>
-             </div>
-   </div>
-<!-- Artist Application Section -->
+    <!-- Artist Application Section -->
 <section id="artist-apply" class="py-5 bg-light">
     <div class="container">
         <div class="row justify-content-center">

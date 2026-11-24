@@ -22,11 +22,15 @@ Art Biz is a fictitious B2B art consulting and event booking platform, created a
 + [Testing](#testing)
   + [Manual & CRUD Testing](#manual--crud-testing)
   + [Validator Testing](#validator-testing)
+  + [JavaScript Testing](#javascript-testing)
   + [Unfixed Bugs](#unfixed-bugs)
 + [Technologies Used](#technologies-used)
   + [Main Languages Used](#main-languages-used)
   + [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used)
 + [Deployment](#deployment)
+  + [Version Control & Repository](#version-control--repository)
+  + [Preparing the Application for Production](#preparing-the-application-for-production)
+  + [Deploying to Render](#deploying-to-render)
 + [Credits](#credits)
   
 
@@ -204,6 +208,28 @@ There are no known unfixed bugs at the time of submission.
 - Render  - Deployment
  
 ## Deployment
+
+### Version Control & Repository
+The site was developed using Git for version control and hosted on GitHub. Changes were committed regularly with descriptive messages and pushed to the `main` branch.
+
+### Preparing the Application for Production
+1. **Dependencies:** Installed production packages (`gunicorn`, `whitenoise`, `psycopg2-binary`, `dj-database-url`) and froze them into `requirements.txt` via `pip freeze > requirements.txt`.
+2. **Procfile:** Created a `Procfile` in the root directory containing `web: gunicorn PP4.wsgi`.
+3. **Settings (`settings.py`):**
+   * Configured `SECRET_KEY`, `DATABASE_URL`, and `CLOUDINARY_URL` to load from environment variables.
+   * Set `DEBUG = False` for production and added `.onrender.com` to `ALLOWED_HOSTS`.
+   * Configured `WhiteNoise` middleware to serve static files efficiently.
+
+### Deploying to Render
+1. Created a PostgreSQL database instance on **Render** (or Supabase/Neon) and copied the external database URL.
+2. Logged in to [Render](https://render.com) and clicked **New +** -> **Web Service**.
+3. Connected the GitHub repository for **ArtBiz**.
+4. Configured the service settings:
+   * **Runtime:** Python 3
+   * **Build Command:** `pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate`
+   * **Start Command:** `gunicorn PP4.wsgi`
+5. Added all required **Environment Variables** (`SECRET_KEY`, `DATABASE_URL`, `CLOUDINARY_URL`, `DISABLE_COLLECTSTATIC=0`).
+6. Clicked **Create Web Service** and verified that the live deployed site matched the local development version.
 
 ## Credits
 
